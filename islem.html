@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>İşlem</title>
+</head>
+<body>
+    
+</body>
+<script>
+// Kullanıcı formunu gönderdi mi kontrol edelim
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById("yourFormId"); // Formun id'sini buraya girin
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Formun otomatik olarak gönderilmesini engellemek için
+
+        // Kullanıcının girdiği TC Kimlik Numarasını alalım
+        var tc = document.getElementById("tc").value; // TC Kimlik Numarasının input alanının id'sini buraya girin
+
+        // TC Kimlik Numarasına göre yönlendirme yapmak için klasörleri tanımlayalım
+        var tcKlasorleri = {
+            "11446093266": "admin/batuhan_veysel_gurbuz",
+            "10966107088": "admin/arda_uyar",
+            "13060039866": "admin/ahmetcan_cicek",
+            "13906010448": "admin/batuhan_öztürk",
+            "13408026688": "admin/ahmet_arda_kus",
+            "13411028426": "admin/necip_yilmaz",
+            "14020008038": "admin/yusuf_balli",
+            "15985040866": "admin/ayhan_ayaz",
+            "13675019956": "admin/mert_gezer"
+            // Diğer TC Kimlik Numaraları ve klasörleri buraya eklenebilir
+        };
+
+        // Kullanıcının girdiği TC Kimlik Numarası klasörler arasında var mı kontrol edelim
+        if (tcKlasorleri.hasOwnProperty(tc)) {
+            // TC Kimlik Numarası klasörler arasında varsa, ilgili klasörün içindeki index.html dosyasına yönlendirelim
+            window.location.href = tcKlasorleri[tc] + "/index.html";
+        } else {
+            // TC Kimlik Numarası bulunamazsa, kullanıcıyı hata sayfasına yönlendirelim
+            window.location.href = "hata.html";
+        }
+    });
+});
+
+</script>
+</html>

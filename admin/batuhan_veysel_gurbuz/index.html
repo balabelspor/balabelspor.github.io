@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bala Belediye Sporcu Profili</title>
+    <style>
+        /* styles.css */
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo img {
+            height: 50px; /* Logo yüksekliği */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center; /* Profil fotoğrafını dikey olarak hizala */
+        }
+
+        .profile img {
+            border-radius: 50%; /* Profil fotoğrafı yuvarlak yapmak için */
+            height: 40px;
+            width: 40px; /* Profil fotoğrafı yüksekliği */
+            margin-right: 20px; /* Profil fotoğrafı ile bildirim simgesi arasındaki boşluk */
+        }
+
+        .notification-icon {
+            position: relative;
+            cursor: pointer; /* Bildirim simgesi üzerine gelince imleci işaretçiye dönüştür */
+        }
+
+        .notification-icon img {
+            width: 30px; /* Bildirim ikonunun boyutu */
+        }
+
+        .notification-panel {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px); /* Bildirim panelinin profil fotoğrafının altından başlaması */
+            right: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            color: black;
+        }
+
+        .notification-icon:hover .notification-panel {
+            display: block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-icon {
+                display: block;
+                cursor: pointer;
+                font-size: 24px; /* Hamburger menü simgesinin boyutunu ayarla */
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px; /* Hamburger menünün header'dan başlayacak mesafesi */
+                left: 0;
+                width: 100%;
+                background-color: #333;
+            }
+
+            nav ul {
+                padding: 0;
+            }
+
+            nav ul li {
+                margin: 10px;
+            }
+
+            #menu-toggle:checked + .menu-icon {
+                color: #fff;
+            }
+
+            #menu-toggle:checked ~ nav {
+                display: flex;
+            }
+        }
+        .box{
+            border: 1px solid gray;
+            width: 100%;
+            height: 360px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../../logo.png" alt="Logo">
+        </div>
+        <div class="profile">
+            <a href="../../bildirim.html">
+                <div class="notification-icon">
+                <img src="../../notifications_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="Bildirim Iconu">
+            </div> 
+            </a>
+           
+            <img src="../../profile.jpeg" alt="Profil Fotoğrafı">
+        </div>
+    </header>
+    <main>
+    <div class="box">
+    <p>Adı : Batuhan Veysel Gürbüz</p>
+    <p>T.C. : 11446093266</p>
+    <p style="color:red;">Kaçak Oyuncu</p>
+    <hr>
+    <p>Doğum Tarihi : 27 Ekim 2009</p> 
+    <p>Lisans No : 3080202</p>
+    <hr>
+    <p>Filiz Lisans : 15.01.2020</p>
+    <p>Amatör Vize : 06.04.2022</p>
+    <p>Amatör Vize : 28.02.2023</p>
+    <p>Amatör Vize : 05.09.2023</p>
+    </div>
+    <a href="../../index.html">
+    <p>Güvenli Çıkış Yap</p>
+    </a>
+    </main>
+</body>
+</html>
