@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bala Belediye - Admin</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<img class="background" src="arka_plan.jpg" alt="Arka Plan Resmi">
+<div class="login-container">
+    <h2>Admin Paneli</h2>
+    <center><p>Bala Belediye Sporcu Listesi</p></center>
+    
+    <button id="showPlayersButton">Oyuncuları Göster</button>
+    <br>
+    <center>Designed By SnoxeD Studio ©</center>
+</div>
+
+<!-- Admin giriş formu -->
+<div class="login-form-container">
+    <form id="adminLoginForm">
+        <label for="username">Kullanıcı Adı:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Şifre:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Giriş Yap</button>
+    </form>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var showPlayersButton = document.getElementById("showPlayersButton");
+    
+    showPlayersButton.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        var adminPlayers = {
+            "admin/batuhan_veysel_gurbuz": "Batuhan Veysel Gürbüz",
+            "admin/arda_uyar": "Arda Uyar",
+            "admin/ahmetcan_cicek": "Ahmetcan Çiçek",
+            "admin/batuhan_öztürk": "Batuhan Öztürk",
+            "admin/ahmet_arda_kus": "Ahmet Arda Kuş",
+            "admin/necip_yilmaz": "Necip Yılmaz",
+            "admin/yusuf_balli": "Yusuf Ballı",
+            "admin/ayhan_ayaz": "Ayhan Ayaz",
+            "admin/mert_gezer": "Mert Gezer"
+        };
+
+        var playerPages = "";
+        for (var playerFolder in adminPlayers) {
+            if (adminPlayers.hasOwnProperty(playerFolder)) {
+                var playerName = adminPlayers[playerFolder];
+                playerPages += '<a href="' + playerFolder + '/index.html" target="_blank">' + playerName + '</a><br>';
+            }
+        }
+
+        var popupContent = "<h3>Admin Oyuncuları:</h3>" + playerPages;
+
+        var popupWindow = window.open("", "Admin Oyuncuları", "width=600,height=400");
+        popupWindow.document.write(popupContent);
+    });
+
+    var adminLoginForm = document.getElementById("adminLoginForm");
+    
+    adminLoginForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username === "admin" && password === "jsj2406") {
+            window.location.href = "admin.html";
+        } else {
+            alert("Kullanıcı adı veya şifre yanlış!");
+        }
+    });
+});
+</script>
+</body>
+</html>
